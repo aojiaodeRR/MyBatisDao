@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aojiaodeRR.dao.StudentDao">
+    <select id="s_student" resultType="com.aojiaodeRR.domain.student">
+        select id , name ,age from t_student order by id
+    </select>
+    <select id="ssname" resultType="com.aojiaodeRR.domain.student">
+        select id ,name ,age from t_student where name = #{name}
+    </select>
+    <select id="sIA" resultType="com.aojiaodeRR.domain.student">
+        select id ,name ,age from t_student where id = #{sid} or age = #{sage}
+    </select>
+    <select id="selectobject" resultType="com.aojiaodeRR.domain.student">
+        select id ,name ,age from t_student where id = #{selectid} or age = #{selectage}
+    </select>
+</mapper>
+        <!-- sql映射文件，写sql语句
+指定约束文件：<!DOCTYPE mapper
+               PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+               mybatis-3-mapper.dtd是约束文件的名称.dtd格式,限制和检查文件中的语法是否合规
+  mapper:当前文件的根标签
+  namespace：命名空间，唯一值，使用dao接口的全路径名称，可自定义但不推荐
+  id：执行sql语句的唯一标识，mybatis使用此id值来找到要执行的SQL语句，使用接口中的方法名称
+  resultType:表示sql语句返回结果对象的类型是什么，值写类型的全路径名称
+-->
